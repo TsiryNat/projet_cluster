@@ -1,0 +1,22 @@
+# lancer le projet
+node app.js
+
+# ecoute sur le port
+http://localhost:3000
+
+
+# install npm
+sudo apt install npm
+
+# install framwork express
+npm install express
+
+# install framwork vue
+npm install ejs
+
+# install drive pour mysql
+npm install mysql2
+
+
+# install session
+npm install express-session
