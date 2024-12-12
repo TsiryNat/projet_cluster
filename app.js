@@ -110,15 +110,36 @@ app.post('/insertion', (req, res) => {
   });
 });
 
+// app.get('/accueil', (req, res) => {
+//   if (req.session.utilisateur) {
+//     // Si l'utilisateur est connecté, afficher son information
+//     res.send(`<h1>Bienvenue, ${req.session.utilisateur.nom}!</h1><p>Email: ${req.session.utilisateur.email}</p>`);
+//   } else {
+//     // Si l'utilisateur n'est pas connecté, rediriger vers la page de login
+//     res.redirect('/login_user');
+//   }
+// });
 app.get('/accueil', (req, res) => {
   if (req.session.utilisateur) {
-    // Si l'utilisateur est connecté, afficher son information
-    res.send(`<h1>Bienvenue, ${req.session.utilisateur.nom}!</h1><p>Email: ${req.session.utilisateur.email}</p>`);
+    // Rendre une vue avec les données de session
+    res.render('accueil', { utilisateur: req.session.utilisateur });
   } else {
-    // Si l'utilisateur n'est pas connecté, rediriger vers la page de login
     res.redirect('/login_user');
   }
 });
+
+app.get('/logout', (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.error('Erreur lors de la déconnexion :', err);
+      return res.status(500).send('Erreur lors de la déconnexion.');
+    }
+    res.redirect('/login_user'); // Rediriger vers la page de login après la déconnexion
+  });
+});
+
+
+
 
 
 app.get('/login_user', (req, res) => {

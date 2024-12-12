@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'accueil</title>
+</head>
+<body>
+    <h1>Bienvenue, <%= utilisateur.nom %>!</h1>
+    <p>Email : <%= utilisateur.email %></p>
+    <p>Numero telephone : <%= utilisateur.num_telephone %></p>
+
+    <p><a href="/logout">Se déconnecter</a></p>
+</body>
+</html>
