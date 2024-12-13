@@ -142,6 +142,12 @@ app.get('/logout', (req, res) => {
 
 
 
+// app.get('', (req, res) => {
+//   const error = req.query.error ?? 0;
+//   res.render('login', { query: { error: error } });
+// });
+
+
 app.get('/login_user', (req, res) => {
   const error = req.query.error ?? 0;
   res.render('login', { query: { error: error } });
